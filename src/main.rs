@@ -97,7 +97,10 @@ impl RenderSystem {
 
 fn main() {
     let mut window: PistonWindow = WindowSettings::new("ECS Example", [500, 500])
-        .exit_on_esc(true).build().unwrap();
+    .exit_on_esc(true)
+    .build()
+    .unwrap_or_else(|e| panic!("Failed to create window: {}", e));
+
   
     let mut keys_pressed = HashSet::new();
     let mut next_entity_id = 0;
